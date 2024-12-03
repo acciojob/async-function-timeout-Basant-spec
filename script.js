@@ -10,6 +10,9 @@ async function handleButtonClick() {
   const delayInput = parseInt(document.getElementById("delay").value, 10);
   const outputDiv = document.getElementById("output");
 
+  // Clear the output div to ensure it starts empty
+  outputDiv.innerHTML = "";
+
   // Validate inputs
   if (!textInput) {
     outputDiv.innerHTML = "Please enter some text.";
@@ -20,9 +23,6 @@ async function handleButtonClick() {
     outputDiv.innerHTML = "Please enter a valid delay (non-negative number).";
     return;
   }
-
-  // Clear the output div before starting the delay
-  outputDiv.innerHTML = "Waiting...";
 
   // Wait for the specified delay
   await delay(delayInput);
